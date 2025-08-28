@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Online Cyber Cafe</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -12,91 +16,189 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
     }
 
     .header {
-      background-color: #333;
+      background-color: #431bd1;
       color: white;
-      padding: 10px 20px;
-      text-align: center;
+      padding: 8px 15px;
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 100%;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container {
+      width: 90px;
+      height: 90px;
+      margin-right: 8px;
+    }
+
+    .logo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .nav {
-      margin-top: 10px;
+      margin: 0;
     }
 
     .nav a {
       color: white;
-      margin: 0 15px;
+      margin: 0 10px;
       text-decoration: none;
+      font-size: 20px;
     }
 
     .hamburger {
       display: none;
       cursor: pointer;
       position: absolute;
-      top: 15px;
-      right: 20px;
+      top: 12px;
+      right: 15px;
       flex-direction: column;
-      gap: 5px;
+      gap: 4px;
     }
 
     .hamburger span {
-      width: 25px;
-      height: 3px;
+      width: 20px;
+      height: 2px;
       background-color: white;
       display: block;
     }
 
     .nav-links {
       display: flex;
+      align-items: center;
+    }
+
+    .slider-container {
+      width: 100%;
+      height: 300px;
+      margin: 10px auto;
+      overflow: hidden;
+      position: relative;
+      border: 2px solid #333;
+      border-radius: 5px;
+      max-width: 100%;
+    }
+
+    .slider {
+      display: flex;
+      width: 400%;
+      height: 100%;
+      animation: slide 16s infinite;
+    }
+
+    .slide {
+      width: 25%;
+      height: 100%;
+      display: flex;
       justify-content: center;
       align-items: center;
     }
 
+    .slide img {
+      width: 100%;
+      height: auto;
+      max-height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(0); }
+      25% { transform: translateX(-25%); }
+      45% { transform: translateX(-25%); }
+      50% { transform: translateX(-50%); }
+      70% { transform: translateX(-50%); }
+      75% { transform: translateX(-75%); }
+      95% { transform: translateX(-75%); }
+      100% { transform: translateX(0); }
+    }
+
     .content {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
+      padding: 15px;
+      width: 100%;
       flex: 1 0 auto;
+      max-width: 100%;
+    }
+
+    .new-container {
+      width: 100%;
+      height: 300px;
+      margin: 10px auto;
+      border: 2px solid #333;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      max-width: 100%;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .new-container h2 {
+      margin-top: 0;
+    }
+
+    .new-container ul {
+      list-style-type: disc;
+      padding-left: 20px;
     }
 
     .main-container {
       background-color: #f9f9f9;
-      border: 3px solid #333;
-      padding: 30px;
-      border-radius: 10px;
-      margin-bottom: 20px;
+      border: 2px solid #333;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 15px;
       display: grid;
       grid-template-columns: 1fr;
+      width: 100%;
+      max-width: 100%;
     }
 
     .cafe-list-container,
     .job-list-container {
-      height: 350px;
+      height: 300px;
       overflow-y: auto;
       border: 2px solid #333;
-      padding: 15px;
+      padding: 10px;
       margin: 0;
+      max-width: 100%;
     }
 
     .cafe-list,
     .job-list {
       list-style: none;
       padding: 0;
+      max-width: 100%;
     }
 
     .cafe-item,
     .job-item {
       background-color: #fff;
-      margin: 15px 0;
-      padding: 15px;
-      border-left: 4px solid #333;
+      margin: 10px 0;
+      padding: 10px;
+      border-left: 3px solid #333;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      max-width: 100%;
     }
 
     .cafe-item:hover,
@@ -105,15 +207,16 @@
     }
 
     .contact-btn {
-      padding: 8px 15px;
-      background-color: #333;
+      padding: 6px 12px;
+      background-color: #431bd1;
       color: white;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 4px;
+      font-size: 20px;
     }
 
     .contact-btn:hover {
-      background-color: #555;
+      background-color: #24225c;
     }
 
     @media (max-width: 600px) {
@@ -124,12 +227,18 @@
       .nav-links {
         display: none;
         flex-direction: column;
-        background-color: #333;
-        padding: 10px 0;
+        background-color: #431bd1;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 8px 0;
+        text-align: center;
       }
 
       .nav-links a {
-        margin: 10px 0;
+        margin: 8px 0;
+        font-size: 20px;
       }
 
       .nav-links.active {
@@ -137,14 +246,15 @@
       }
 
       .content {
-        padding: 10px;
-        max-width: 100%;
+        padding: 8px;
+        width: 100%;
       }
 
       .main-container {
-        padding: 15px;
+        padding: 10px;
         border-radius: 5px;
-        gap: 15px;
+        gap: 10px;
+        width: 100%;
       }
 
       .cafe-item {
@@ -153,14 +263,39 @@
       }
 
       .contact-btn {
-        margin-top: 10px;
+        margin-top: 8px;
         width: 100%;
         box-sizing: border-box;
       }
 
       .cafe-list-container,
       .job-list-container {
-        height: 200px;
+        height: 180px;
+      }
+
+      .logo-container {
+        width: 60px;
+        height: 30px;
+        margin-right: 8px;
+      }
+
+      .header {
+        flex-wrap: wrap;
+      }
+
+      .header-right {
+        flex-grow: 1;
+        justify-content: flex-end;
+      }
+
+      .slider-container {
+        height: 160px;
+        width: 100%;
+      }
+
+      .new-container {
+        height: 160px;
+        padding: 10px;
       }
     }
 
@@ -171,18 +306,20 @@
     }
 
     .footer {
-      background-color: #333;
+      background-color: #431bd1;
       color: white;
       text-align: center;
-      padding: 10px 20px;
+      padding: 8px 15px;
       flex-shrink: 0;
       margin-top: auto;
+      max-width: 100%;
     }
 
     .footer a {
       color: #ddd;
       text-decoration: none;
-      margin: 0 10px;
+      margin: 0 8px;
+      font-size: 20px;
     }
 
     .footer a:hover {
@@ -192,7 +329,19 @@
 </head>
 <body>
   <div class="header">
-    <h1>Online Cyber Cafe</h1>
+    <div class="header-left">
+      <div class="logo-container">
+        <img src="logo.jpg" alt="Online Cyber Cafe Logo">
+      </div>
+      <h1>Online Cyber Cafe</h1>
+    </div>
+    <div class="header-right">
+      <div class="nav nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
 
     <!-- Hamburger Icon -->
     <div class="hamburger" onclick="toggleMenu()">
@@ -200,13 +349,35 @@
       <span></span>
       <span></span>
     </div>
+  </div>
 
-    <!-- Navigation Links -->
-    <div class="nav nav-links" id="navLinks">
-      <a href="#home">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+  <div class="slider-container">
+    <div class="slider">
+      <div class="slide">
+        <img src="poster1.png" alt="Slide 1">
+      </div>
+      <div class="slide">
+        <img src="poster2.JPG" alt="Slide 2">
+      </div>
+      <div class="slide">
+        <img src="poster1.png" alt="Slide 3">
+      </div>
+      <div class="slide">
+        <img src="poster2.JPG" alt="Slide 4">
+      </div>
     </div>
+  </div>
+
+  <div class="new-container">
+    <h2>How to Use This Website</h2>
+    <p>Follow these simple steps to make the most of Online Cyber Cafe:</p>
+    <ul>
+      <li><strong>Explore Registered Cyber Cafes:</strong> Scroll through the "Registered Cyber Cafes" section below to find a nearby cyber cafe. Click the "Contact" button to reach out directly.</li>
+      <li><strong>Check Job Openings:</strong> Browse the "Current Government Openings" section for the latest job opportunities and their deadlines.</li>
+      <li><strong>Contact for Assistance:</strong> For any help with form filling or other services, use the contact details provided on the "Contact" page or via the WhatsApp link.</li>
+      <li><strong>Upload Documents:</strong> If you need assistance with online forms, prepare clear photos of your documents and send them via WhatsApp or email as instructed.</li>
+      <li><strong>Stay Updated:</strong> Visit regularly or follow us on social media for the latest updates on cyber cafes and job listings.</li>
+    </ul>
   </div>
 
   <div class="content">
@@ -215,7 +386,6 @@
         <h2>Registered Cyber Cafes</h2>
         <div class="cafe-list-container">
           <ul class="cafe-list" id="cafeList">
-           
             <li class="cafe-item">
               Unique Cyber Cafe
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJBbdnHv1zaxCIVuF_N8C0UwwT6gWFzOp93i4yezb9HdlxuQ/viewform?usp=preview" class="contact-btn" target="_blank">Contact</a>
@@ -233,17 +403,17 @@
         <div class="job-list-container">
           <ul class="job-list" id="jobList">
             <li class="job-item">BARTI Recruitment 2025 - (Deadline 2025-09-25)</li>
-            <li class="job-item">TRTI Pune Recruitment 2025 - (Deadline: 2025-09-30)</li
-            <li class="job-item">5180+ SBI Clerk Bharti 2025  (Deadline: To be announced)</li>
-            <li class="job-item"> 417 Bank of Baroda Recruitement</li>
-            <li class="job-item"> 1266 Indian Navy Tradesman  Recruitement</li>
-            <li class="job-item"> 475 Indian Oil IOCL Apprentice Recruitement</li>
-            <li class="job-item"> 250 Union Bank of India  Recruitement</li>
-            <li class="job-item"> 841 LIC Recruitement</li>
-            <li class="job-item"> 1121 BSF  Recruitement</li>
-            <li class="job-item"> 2412 Central Railways  Recruitement</li>
-            <li class="job-item"> 500 Bank of Maharashtra  Recruitement</li>
-            <li class="job-item"> 169 PMC  Recruitement</li>
+            <li class="job-item">TRTI Pune Recruitment 2025 - (Deadline: 2025-09-30)</li>
+            <li class="job-item">5180+ SBI Clerk Bharti 2025 (Deadline: To be announced)</li>
+            <li class="job-item">417 Bank of Baroda Recruitment</li>
+            <li class="job-item">1266 Indian Navy Tradesman Recruitment</li>
+            <li class="job-item">475 Indian Oil IOCL Apprentice Recruitment</li>
+            <li class="job-item">250 Union Bank of India Recruitment</li>
+            <li class="job-item">841 LIC Recruitment</li>
+            <li class="job-item">1121 BSF Recruitment</li>
+            <li class="job-item">2412 Central Railways Recruitment</li>
+            <li class="job-item">500 Bank of Maharashtra Recruitment</li>
+            <li class="job-item">169 PMC Recruitment</li>
           </ul>
         </div>
       </div>
@@ -252,7 +422,7 @@
 
   <div class="footer">
     <p>&copy; 2025 Online Cyber Cafe. All rights reserved.</p>
-    <p>Contact us: <a href="mailto:support@onlinecybercafe.com">support@onlinecybercafe.com</a> | Phone: +918275603973</p>
+    <p>Contact us: <a href="mailto:support@onlinecybercafe.com">support@onlinecybercafe.com</a> | Phone: +919322755952</p>
     <p>Follow us: <a href="https://facebook.com/onlinecybercafe" target="_blank">Facebook</a> | <a href="https://twitter.com/onlinecybercafe" target="_blank">Twitter</a></p>
   </div>
 
@@ -264,7 +434,3 @@
   </script>
 </body>
 </html>
-
-
-
-
