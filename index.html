@@ -9,6 +9,10 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --base-font-size: 16px;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -17,12 +21,13 @@
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
+      font-size: 1rem; /* 16px base */
     }
 
     .header {
       background-color: #431bd1;
       color: white;
-      padding: 8px 15px;
+      padding: 0.5rem 0.9375rem; /* 8px 15px */
       position: relative;
       display: flex;
       align-items: center;
@@ -41,9 +46,9 @@
     }
 
     .logo-container {
-      width: 90px;
-      height: 90px;
-      margin-right: 8px;
+      width: 5.625rem; /* 90px */
+      height: 5.625rem; /* 90px */
+      margin-right: 0.5rem; /* 8px */
     }
 
     .logo-container img {
@@ -58,24 +63,24 @@
 
     .nav a {
       color: white;
-      margin: 0 10px;
+      margin: 0 0.625rem; /* 10px */
       text-decoration: none;
-      font-size: 20px;
+      font-size: 1.25rem; /* 20px */
     }
 
     .hamburger {
       display: none;
       cursor: pointer;
       position: absolute;
-      top: 12px;
-      right: 15px;
+      top: 0.75rem; /* 12px */
+      right: 0.9375rem; /* 15px */
       flex-direction: column;
-      gap: 4px;
+      gap: 0.25rem; /* 4px */
     }
 
     .hamburger span {
-      width: 20px;
-      height: 2px;
+      width: 1.25rem; /* 20px */
+      height: 0.125rem; /* 2px */
       background-color: white;
       display: block;
     }
@@ -87,12 +92,12 @@
 
     .slider-container {
       width: 100%;
-      height: 300px;
-      margin: 10px auto;
+      height: 18.75rem; /* 300px */
+      margin: 0.625rem auto; /* 10px */
       overflow: hidden;
       position: relative;
-      border: 2px solid #333;
-      border-radius: 5px;
+      border: 0.125rem solid #333; /* 2px */
+      border-radius: 0.3125rem; /* 5px */
       max-width: 100%;
     }
 
@@ -132,7 +137,7 @@
     }
 
     .content {
-      padding: 15px;
+      padding: 0.9375rem; /* 15px */
       width: 100%;
       flex: 1 0 auto;
       max-width: 100%;
@@ -140,31 +145,40 @@
 
     .new-container {
       width: 100%;
-      height: 300px;
-      margin: 10px auto;
-      border: 2px solid #333;
-      border-radius: 5px;
+      height: 18.75rem; /* 300px */
+      margin: 0.625rem auto; /* 10px */
+      border: 0.125rem solid #333; /* 2px */
+      border-radius: 0.3125rem; /* 5px */
       background-color: #f9f9f9;
       max-width: 100%;
-      padding: 20px;
+      padding: 1.25rem; /* 20px */
       overflow-y: auto;
     }
 
     .new-container h2 {
       margin-top: 0;
+      font-size: 1.5rem; /* 24px */
+    }
+
+    .new-container p {
+      font-size: 1rem; /* 16px */
     }
 
     .new-container ul {
       list-style-type: disc;
-      padding-left: 20px;
+      padding-left: 1.25rem; /* 20px */
+    }
+
+    .new-container li {
+      font-size: 1rem; /* 16px */
     }
 
     .main-container {
       background-color: #f9f9f9;
-      border: 2px solid #333;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 15px;
+      border: 0.125rem solid #333; /* 2px */
+      padding: 1.25rem; /* 20px */
+      border-radius: 0.5rem; /* 8px */
+      margin-bottom: 0.9375rem; /* 15px */
       display: grid;
       grid-template-columns: 1fr;
       width: 100%;
@@ -173,10 +187,10 @@
 
     .cafe-list-container,
     .job-list-container {
-      height: 300px;
+      height: 18.75rem; /* 300px */
       overflow-y: auto;
-      border: 2px solid #333;
-      padding: 10px;
+      border: 0.125rem solid #333; /* 2px */
+      padding: 0.625rem; /* 10px */
       margin: 0;
       max-width: 100%;
     }
@@ -191,9 +205,9 @@
     .cafe-item,
     .job-item {
       background-color: #fff;
-      margin: 10px 0;
-      padding: 10px;
-      border-left: 3px solid #333;
+      margin: 0.625rem 0; /* 10px */
+      padding: 0.625rem; /* 10px */
+      border-left: 0.1875rem solid #333; /* 3px */
       cursor: pointer;
       display: flex;
       justify-content: space-between;
@@ -207,12 +221,12 @@
     }
 
     .contact-btn {
-      padding: 6px 12px;
+      padding: 0.375rem 0.75rem; /* 6px 12px */
       background-color: #431bd1;
       color: white;
       text-decoration: none;
-      border-radius: 4px;
-      font-size: 20px;
+      border-radius: 0.25rem; /* 4px */
+      font-size: 1.25rem; /* 20px */
     }
 
     .contact-btn:hover {
@@ -229,16 +243,16 @@
         flex-direction: column;
         background-color: #431bd1;
         position: absolute;
-        top: 60px;
+        top: 3.75rem; /* 60px */
         right: 0;
         width: 100%;
-        padding: 8px 0;
+        padding: 0.5rem 0; /* 8px */
         text-align: center;
       }
 
       .nav-links a {
-        margin: 8px 0;
-        font-size: 20px;
+        margin: 0.5rem 0; /* 8px */
+        font-size: 1.25rem; /* 20px */
       }
 
       .nav-links.active {
@@ -246,14 +260,14 @@
       }
 
       .content {
-        padding: 8px;
+        padding: 0.5rem; /* 8px */
         width: 100%;
       }
 
       .main-container {
-        padding: 10px;
-        border-radius: 5px;
-        gap: 10px;
+        padding: 0.625rem; /* 10px */
+        border-radius: 0.3125rem; /* 5px */
+        gap: 0.625rem; /* 10px */
         width: 100%;
       }
 
@@ -263,20 +277,20 @@
       }
 
       .contact-btn {
-        margin-top: 8px;
+        margin-top: 0.5rem; /* 8px */
         width: 100%;
         box-sizing: border-box;
       }
 
       .cafe-list-container,
       .job-list-container {
-        height: 180px;
+        height: 11.25rem; /* 180px */
       }
 
       .logo-container {
-        width: 60px;
-        height: 30px;
-        margin-right: 8px;
+        width: 3.75rem; /* 60px */
+        height: 1.875rem; /* 30px */
+        margin-right: 0.5rem; /* 8px */
       }
 
       .header {
@@ -289,13 +303,25 @@
       }
 
       .slider-container {
-        height: 160px;
+        height: 10rem; /* 160px */
         width: 100%;
       }
 
       .new-container {
-        height: 160px;
-        padding: 10px;
+        height: 10rem; /* 160px */
+        padding: 0.625rem; /* 10px */
+      }
+
+      .new-container h2 {
+        font-size: 1.2rem; /* 19.2px */
+      }
+
+      .new-container p {
+        font-size: 0.9rem; /* 14.4px */
+      }
+
+      .new-container li {
+        font-size: 0.9rem; /* 14.4px */
       }
     }
 
@@ -309,7 +335,7 @@
       background-color: #431bd1;
       color: white;
       text-align: center;
-      padding: 8px 15px;
+      padding: 0.5rem 0.9375rem; /* 8px 15px */
       flex-shrink: 0;
       margin-top: auto;
       max-width: 100%;
@@ -318,8 +344,8 @@
     .footer a {
       color: #ddd;
       text-decoration: none;
-      margin: 0 8px;
-      font-size: 20px;
+      margin: 0 0.5rem; /* 8px */
+      font-size: 1.25rem; /* 20px */
     }
 
     .footer a:hover {
