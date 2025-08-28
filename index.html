@@ -65,7 +65,7 @@
       color: white;
       margin: 0 0.625rem; /* 10px */
       text-decoration: none;
-      font-size: 1.5rem; /* 24px, increased from 20px */
+      font-size: 1.5rem; /* 24px */
     }
 
     .hamburger {
@@ -145,7 +145,7 @@
 
     .new-container {
       width: 100%;
-      height: 18.75rem; /* 300px */
+      min-height: 18.75rem; /* 300px as minimum */
       margin: 0.625rem auto; /* 10px */
       border: 0.125rem solid #333; /* 2px */
       border-radius: 0.3125rem; /* 5px */
@@ -157,11 +157,11 @@
 
     .new-container h2 {
       margin-top: 0;
-      font-size: 1.875rem; /* 30px, increased from 24px */
+      font-size: clamp(1.5rem, 3vw, 2rem); /* 24px to 32px, scales with viewport */
     }
 
     .new-container p {
-      font-size: 1.25rem; /* 20px, increased from 16px */
+      font-size: clamp(1rem, 2.5vw, 1.375rem); /* 16px to 22px */
     }
 
     .new-container ul {
@@ -170,8 +170,8 @@
     }
 
     .new-container li {
-      font-size: 1.25rem; /* 20px, increased from 16px */
-      margin-bottom: 0.625rem; /* 10px for spacing between list items */
+      font-size: clamp(1rem, 2.5vw, 1.375rem); /* 16px to 22px */
+      margin-bottom: 0.625rem; /* 10px */
     }
 
     .main-container {
@@ -227,7 +227,7 @@
       color: white;
       text-decoration: none;
       border-radius: 0.25rem; /* 4px */
-      font-size: 1.5rem; /* 24px, increased from 20px */
+      font-size: 1.75rem; /* 28px */
     }
 
     .contact-btn:hover {
@@ -309,20 +309,20 @@
       }
 
       .new-container {
-        height: 10rem; /* 160px */
+        min-height: 10rem; /* 160px */
         padding: 0.625rem; /* 10px */
       }
 
       .new-container h2 {
-        font-size: 1.5rem; /* 24px */
+        font-size: clamp(1.2rem, 3vw, 1.5rem); /* 19.2px to 24px */
       }
 
       .new-container p {
-        font-size: 1rem; /* 16px */
+        font-size: clamp(0.9rem, 2.5vw, 1rem); /* 14.4px to 16px */
       }
 
       .new-container li {
-        font-size: 1rem; /* 16px */
+        font-size: clamp(0.9rem, 2.5vw, 1rem); /* 14.4px to 16px */
         margin-bottom: 0.5rem; /* 8px */
       }
     }
