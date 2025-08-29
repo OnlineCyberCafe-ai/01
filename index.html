@@ -76,6 +76,7 @@
       right: 0.9375rem; /* 15px */
       flex-direction: column;
       gap: 0.25rem; /* 4px */
+      z-index: 1000; /* Ensure hamburger is above other elements */
     }
 
     .hamburger span {
@@ -83,6 +84,7 @@
       height: 0.125rem; /* 2px */
       background-color: white;
       display: block;
+      transition: all 0.3s ease; /* Smooth transition for hamburger animation */
     }
 
     .nav-links {
@@ -244,20 +246,21 @@
         flex-direction: column;
         background-color: #431bd1;
         position: absolute;
-        top: 3.75rem; /* 60px */
+        top: 4.5rem; /* Adjusted to account for header height */
         right: 0;
         width: 100%;
         padding: 0.5rem 0; /* 8px */
         text-align: center;
+        z-index: 999; /* Ensure nav-links are below hamburger but above content */
+      }
+
+      .nav-links.active {
+        display: flex;
       }
 
       .nav-links a {
         margin: 0.5rem 0; /* 8px */
         font-size: 1.5rem; /* 24px */
-      }
-
-      .nav-links.active {
-        display: flex;
       }
 
       .content {
@@ -396,18 +399,6 @@
     </div>
   </div>
 
-  <div class="new-container">
-    <h2>How to Use This Website</h2>
-    <p>Follow these simple steps to make the most of Online Cyber Cafe:</p>
-    <ul>
-      <li><strong>Explore Registered Cyber Cafes:</strong> Scroll through the "Registered Cyber Cafes" section below to find a nearby cyber cafe. Click the "Contact" button to reach out directly.</li>
-      <li><strong>Check Job Openings:</strong> Browse the "Current Government Openings" section for the latest job opportunities and their deadlines.</li>
-      <li><strong>Contact for Assistance:</strong> For any help with form filling or other services, use the contact details provided on the "Contact" page or via the WhatsApp link.</li>
-      <li><strong>Upload Documents:</strong> If you need assistance with online forms, prepare clear photos of your documents and send them via WhatsApp or email as instructed.</li>
-      <li><strong>Stay Updated:</strong> Visit regularly or follow us on social media for the latest updates on cyber cafes and job listings.</li>
-    </ul>
-  </div>
-
   <div class="content">
     <div class="main-container">
       <div>
@@ -446,6 +437,18 @@
         </div>
       </div>
     </div>
+
+    <div class="new-container">
+      <h2>How to Use This Website</h2>
+      <p>Follow these simple steps to make the most of Online Cyber Cafe:</p>
+      <ul>
+        <li><strong>Explore Registered Cyber Cafes:</strong> Scroll through the "Registered Cyber Cafes" section below to find a nearby cyber cafe. Click the "Contact" button to reach out directly.</li>
+        <li><strong>Check Job Openings:</strong> Browse the "Current Government Openings" section for the latest job opportunities and their deadlines.</li>
+        <li><strong>Contact for Assistance:</strong> For any help with form filling or other services, use the contact details provided on the "Contact" page or via the WhatsApp link.</li>
+        <li><strong>Upload Documents:</strong> If you need assistance with online forms, prepare clear photos of your documents and send them via WhatsApp or email as instructed.</li>
+        <li><strong>Stay Updated:</strong> Visit regularly or follow us on social media for the latest updates on cyber cafes and job listings.</li>
+      </ul>
+    </div>
   </div>
 
   <div class="footer">
@@ -459,6 +462,15 @@
       const nav = document.getElementById('navLinks');
       nav.classList.toggle('active');
     }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const nav = document.getElementById('navLinks');
+      const hamburger = document.querySelector('.hamburger');
+      if (!nav.contains(event.target) && !hamburger.contains(event.target) && nav.classList.contains('active')) {
+        nav.classList.remove('active');
+      }
+    });
   </script>
 </body>
 </html>
