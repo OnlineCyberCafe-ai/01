@@ -1,3 +1,4 @@
+// Initialize EmailJS with your User ID
 (function(){
   emailjs.init("BVIemZ27RhdbGAbVg"); 
 })();
@@ -60,8 +61,8 @@ function sendEmail() {
     return;
   }
 
-  // Add current date and time
-  const submissionTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+  // Add current date and time (10:59 AM IST, September 03, 2025)
+  const submissionTime = new Date('2025-09-03T10:59:00+05:30').toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
   const templateParams = {
     full_name: fullName,
@@ -75,7 +76,8 @@ function sendEmail() {
       messageElement.textContent = 'Your request has been sent successfully!';
       messageElement.className = 'message';
       messageElement.style.display = 'block';
-      setTimeout(closeModal, 2000);
+      document.getElementById('contactForm').reset(); // Clear form data after successful submission
+      setTimeout(closeModal, 2000); // Close modal after 2 seconds
     }, function(error) {
       messageElement.textContent = 'Failed to send your request. Please try again.';
       messageElement.className = 'message error';
