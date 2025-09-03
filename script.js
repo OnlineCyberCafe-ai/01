@@ -61,8 +61,8 @@ function sendEmail() {
     return;
   }
 
-  // Add current date and time (10:59 AM IST, September 03, 2025)
-  const submissionTime = new Date('2025-09-03T10:59:00+05:30').toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+  // Add current date and time (11:45 AM IST, September 03, 2025)
+  const submissionTime = new Date('2025-09-03T11:45:00+05:30').toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
   const templateParams = {
     full_name: fullName,
