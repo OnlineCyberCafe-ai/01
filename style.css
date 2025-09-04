@@ -99,6 +99,7 @@ body {
 
 .nav-links.active a {
   margin: 0.5rem 0;
+  font-size: 1.5rem;
 }
 
 .slider-container {
@@ -226,6 +227,8 @@ body {
   justify-content: space-between;
   align-items: center;
   max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .cafe-item:hover,
@@ -241,6 +244,7 @@ body {
   border-radius: 0.25rem;
   font-size: 1.30rem;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .contact-btn:hover {
@@ -351,9 +355,10 @@ body {
 }
 
 /* Mobile Responsive Design */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .header {
     flex-wrap: wrap;
+    padding: 0.5rem 0.9375rem;
   }
 
   .header-left {
@@ -366,29 +371,65 @@ body {
 
   .nav-links.active {
     display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #431bd1;
+    padding: 1rem;
+  }
+
+  .nav-links.active a {
+    margin: 0.5rem 0;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
   }
 
   .hamburger {
     display: flex;
   }
 
+  .hamburger span {
+    width: 1.5rem;
+    height: 0.15rem;
+  }
+
   .slider-container {
-    height: 12rem;
+    height: 18.75rem;
+    margin: 0.625rem auto;
   }
 
   .main-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1.25rem;
+    margin-bottom: 0.9375rem;
   }
 
   .cafe-list-container,
   .job-list-container {
-    height: 15rem;
+    height: 18.75rem;
+    padding: 0.625rem;
+    overflow-y: auto;
+  }
+
+  .cafe-item,
+  .job-item {
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    padding: 0.625rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .contact-btn {
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    padding: 0.2rem 0.5rem;
   }
 
   .new-container {
-    min-height: 15rem;
-    padding: 0.75rem;
+    min-height: 18.75rem;
+    padding: 1.25rem;
+    margin: 0.625rem auto;
   }
 
   .new-container h2 {
@@ -400,37 +441,47 @@ body {
     font-size: clamp(0.875rem, 2vw, 1rem);
   }
 
-  .contact-btn {
-    font-size: 1rem;
-    padding: 0.2rem 0.5rem;
-  }
-
   .modal-content {
     width: 95%;
-    padding: 0.75rem;
+    padding: 1.25rem;
+    max-width: 31.25rem;
   }
 
   .modal-content h2 {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+  }
+
+  .modal-content label {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    margin: 0.625rem 0 0.3125rem;
   }
 
   .modal-content input,
   .modal-content select {
-    font-size: 0.875rem;
-    padding: 0.4rem;
-  }
-
-  .modal-content button {
-    font-size: 0.875rem;
-    padding: 0.4rem 0.8rem;
-  }
-
-  .footer {
-    font-size: 0.875rem;
+    font-size: clamp(0.875rem, 2vw, 1rem);
     padding: 0.5rem;
   }
 
+  .modal-content button {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    padding: 0.5rem 1rem;
+    margin-top: 1.25rem;
+  }
+
+  .close-btn {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+  }
+
+  .message {
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+  }
+
+  .footer {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    padding: 0.75rem 0.9375rem;
+  }
+
   .footer a {
-    font-size: 0.875rem;
+    font-size: clamp(0.875rem, 2vw, 1rem);
   }
 }
