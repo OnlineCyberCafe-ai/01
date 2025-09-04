@@ -2,11 +2,462 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=1024, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Online Cyber Cafe</title>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary-color: #431bd1;
+      --secondary-color: #24225c;
+      --text-color: #333;
+      --light-color: #f9f9f9;
+      --border-color: #333;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-color);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* Header Styles */
+    .header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container {
+      width: 60px;
+      height: 60px;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    .logo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav {
+      margin: 0;
+    }
+
+    .nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 1000;
+      padding: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    /* Slider Styles */
+    .slider-container {
+      width: 100%;
+      height: 200px;
+      margin: 10px auto;
+      overflow: hidden;
+      position: relative;
+      border: 2px solid var(--border-color);
+      border-radius: 5px;
+    }
+
+    .slider {
+      display: flex;
+      width: 400%;
+      height: 100%;
+      animation: slide 16s infinite;
+    }
+
+    .slide {
+      width: 25%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slide img {
+      width: 100%;
+      height: auto;
+      max-height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(0); }
+      25% { transform: translateX(-25%); }
+      45% { transform: translateX(-25%); }
+      50% { transform: translateX(-50%); }
+      70% { transform: translateX(-50%); }
+      75% { transform: translateX(-75%); }
+      95% { transform: translateX(-75%); }
+      100% { transform: translateX(0); }
+    }
+
+    /* Content Styles */
+    .content {
+      padding: 15px;
+      width: 100%;
+      flex: 1 0 auto;
+    }
+
+    .main-container {
+      background-color: var(--light-color);
+      border: 2px solid var(--border-color);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .cafe-list-container,
+    .job-list-container {
+      height: 300px;
+      overflow-y: auto;
+      border: 2px solid var(--border-color);
+      padding: 10px;
+      margin: 0;
+    }
+
+    .cafe-list,
+    .job-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cafe-item,
+    .job-item {
+      background-color: #fff;
+      margin: 10px 0;
+      padding: 10px;
+      border-left: 3px solid var(--border-color);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .cafe-item:hover,
+    .job-item:hover {
+      background-color: #e0e0e0;
+    }
+
+    .contact-btn {
+      padding: 6px 12px;
+      background-color: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      white-space: nowrap;
+      margin-left: 10px;
+    }
+
+    .contact-btn:hover {
+      background-color: var(--secondary-color);
+    }
+
+    .new-container {
+      width: 100%;
+      min-height: auto;
+      margin: 10px auto;
+      border: 2px solid var(--border-color);
+      border-radius: 5px;
+      background-color: var(--light-color);
+      padding: 20px;
+    }
+
+    .new-container h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+
+    .new-container ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    .new-container li {
+      margin-bottom: 10px;
+      word-wrap: break-word;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+
+    .modal-content label {
+      display: block;
+      margin: 10px 0 5px;
+      font-size: 1rem;
+    }
+
+    .modal-content input,
+    .modal-content select {
+      width: 100%;
+      padding: 8px;
+      font-size: 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+    }
+
+    .modal-content button {
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    .modal-content button:hover {
+      background-color: var(--secondary-color);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .message {
+      margin-top: 10px;
+      font-size: 14px;
+      color: green;
+      display: none;
+    }
+
+    .error {
+      color: red;
+    }
+
+    #otherFormInput {
+      display: none;
+      margin-top: 5px;
+    }
+
+    /* Footer Styles */
+    .footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      flex-shrink: 0;
+      margin-top: auto;
+    }
+
+    .footer a {
+      color: #ddd;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    .footer a:hover {
+      color: #fff;
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (min-width: 768px) {
+      .main-container {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .slider-container {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .header {
+        padding: 10px 15px;
+      }
+      
+      .nav {
+        display: none;
+        width: 100%;
+        flex-basis: 100%;
+      }
+      
+      .nav.active {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--primary-color);
+        padding: 10px 0;
+        margin-top: 10px;
+      }
+      
+      .nav a {
+        margin: 8px 15px;
+        font-size: 1.1rem;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+      
+      .header h1 {
+        font-size: 1.3rem;
+        max-width: 200px;
+      }
+      
+      .logo-container {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .cafe-item, .job-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .contact-btn {
+        margin-top: 8px;
+        margin-left: 0;
+        align-self: flex-end;
+      }
+      
+      .job-item {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 1.1rem;
+        max-width: 150px;
+      }
+      
+      .logo-container {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .slider-container {
+        height: 150px;
+      }
+      
+      .main-container {
+        padding: 15px;
+      }
+      
+      .cafe-list-container,
+      .job-list-container {
+        height: 250px;
+      }
+      
+      .new-container {
+        padding: 15px;
+      }
+      
+      .modal-content {
+        padding: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="header">
@@ -17,17 +468,16 @@
       <h1>Online Cyber Cafe</h1>
     </div>
     <div class="header-right">
-      <div class="nav nav-links" id="navLinks">
+      <div class="nav" id="navLinks">
         <a href="#home">Home</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </div>
-    </div>
-
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </div>
 
@@ -123,7 +573,6 @@
           <option value="1121 BSF Recruitment">1121 BSF Recruitment</option>
           <option value="PGCIL Bharti 2025: पॉवर ग्रिड कॉर्पोरेशन ऑफ इंडिया मध्ये 1543 जागांसाठी भरती">PGCIL Bharti 2025: पॉवर ग्रिड कॉर्पोरेशन ऑफ इंडिया मध्ये 1543 जागांसाठी भरती</option>
           <option value="RCFL Apprentice Bharti 2025: राष्ट्रीय केमिकल्स & फर्टिलायझर्स लि. मध्ये 325 जागांसाठी भरती">RCFL Apprentice Bharti 2025: राष्ट्रीय केमिकल्स & फर्टिलायझर्स लि. मध्ये 325 जागांसाठी भरती</option>
-          <option value="169 PMC Recruitment">169 PMC Recruitment</option>
           <option value="Other">Other</option>
         </select>
         <input type="text" id="otherFormInput" name="other_form" placeholder="Please specify the form">
@@ -138,5 +587,97 @@
     <p>Contact us: <a href="mailto:support@onlinecybercafe.com">support@onlinecybercafe.com</a> | Phone: +919322755952</p>
     <p> <a href="">Careers</a> | <a href="https://twitter.com/onlinecybercafe" target="_blank">Twitter</a></p>
   </div>
+
+  <script>
+    // Initialize EmailJS with your User ID
+    (function(){
+      emailjs.init("BVIemZ27RhdbGAbVg");
+    })();
+
+    // Toggle hamburger menu
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+
+    // Modal functions
+    function openModal() {
+      document.getElementById('contactModal').style.display = 'flex';
+      document.getElementById('contactForm').reset();
+      document.getElementById('formMessage').style.display = 'none';
+      document.getElementById('otherFormInput').style.display = 'none';
+    }
+
+    function closeModal() {
+      document.getElementById('contactModal').style.display = 'none';
+      document.getElementById('contactForm').reset();
+      document.getElementById('otherFormInput').style.display = 'none';
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.remove('active'); // Close hamburger menu when modal closes
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('contactModal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+
+    // Toggle visibility of other form input
+    function toggleOtherInput() {
+      const formName = document.getElementById('formName').value;
+      const otherInput = document.getElementById('otherFormInput');
+      otherInput.style.display = formName === 'Other' ? 'block' : 'none';
+      if (formName !== 'Other') {
+        otherInput.value = '';
+      }
+    }
+
+    // Send email using EmailJS
+    function sendEmail() {
+      const fullName = document.getElementById('fullName').value;
+      const whatsappNumber = document.getElementById('whatsappNumber').value;
+      let formName = document.getElementById('formName').value;
+      const otherFormInput = document.getElementById('otherFormInput').value;
+      const messageElement = document.getElementById('formMessage');
+
+      // Use other form input if "Other" is selected
+      if (formName === 'Other') {
+        formName = otherFormInput;
+      }
+
+      // Basic validation
+      if (!fullName || !whatsappNumber || !formName) {
+        messageElement.textContent = 'Please fill out all fields.';
+        messageElement.className = 'message error';
+        messageElement.style.display = 'block';
+        return;
+      }
+
+      // Add current date and time
+      const submissionTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+      const templateParams = {
+        full_name: fullName,
+        whatsapp_number: whatsappNumber,
+        form_name: formName,
+        submission_time: submissionTime
+      };
+
+      emailjs.send('service_m8m6gn7', 'template_pvs848c', templateParams)
+        .then(function(response) {
+          messageElement.textContent = 'Your request has been sent successfully!';
+          messageElement.className = 'message';
+          messageElement.style.display = 'block';
+          document.getElementById('contactForm').reset();
+          setTimeout(closeModal, 2000);
+        }, function(error) {
+          messageElement.textContent = 'Failed to send your request. Please try again.';
+          messageElement.className = 'message error';
+          messageElement.style.display = 'block';
+        });
+    }
+  </script>
 </body>
 </html>
