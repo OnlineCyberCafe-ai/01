@@ -1,11 +1,12 @@
 // Initialize EmailJS with your User ID
 (function(){
-  emailjs.init("BVIemZ27RhdbGAbVg"); 
+  emailjs.init("BVIemZ27RhdbGAbVg");
 })();
 
-// Disable hamburger menu toggle to keep navigation always visible
+// Toggle hamburger menu
 function toggleMenu() {
-  // No-op: Hamburger menu is disabled to ensure desktop mode
+  const navLinks = document.getElementById('navLinks');
+  navLinks.classList.toggle('active');
 }
 
 // Modal functions
@@ -18,8 +19,10 @@ function openModal() {
 
 function closeModal() {
   document.getElementById('contactModal').style.display = 'none';
-  document.getElementById('contactForm').reset(); // Clears all form fields
-  document.getElementById('otherFormInput').style.display = 'none'; // Hides "Other" input
+  document.getElementById('contactForm').reset();
+  document.getElementById('otherFormInput').style.display = 'none';
+  const navLinks = document.getElementById('navLinks');
+  navLinks.classList.remove('active'); // Close hamburger menu when modal closes
 }
 
 // Close modal when clicking outside
@@ -61,8 +64,8 @@ function sendEmail() {
     return;
   }
 
-  // Add current date and time (11:45 AM IST, September 03, 2025)
-  const submissionTime = new Date('2025-09-03T11:45:00+05:30').toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+  // Add current date and time
+  const submissionTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
   const templateParams = {
     full_name: fullName,
@@ -76,12 +79,11 @@ function sendEmail() {
       messageElement.textContent = 'Your request has been sent successfully!';
       messageElement.className = 'message';
       messageElement.style.display = 'block';
-      document.getElementById('contactForm').reset(); // Clear form data after successful submission
-      setTimeout(closeModal, 2000); // Close modal after 2 seconds
+      document.getElementById('contactForm').reset();
+      setTimeout(closeModal, 2000);
     }, function(error) {
       messageElement.textContent = 'Failed to send your request. Please try again.';
       messageElement.className = 'message error';
       messageElement.style.display = 'block';
     });
 }
-
