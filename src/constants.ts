@@ -27,6 +27,7 @@ export const JOBS: Job[] = [
     { id: 10, title: 'PGCIL Bharti 2025: पॉवर ग्रिड कॉर्पोरेशन ऑफ इंडिया मध्ये 1543 जागांसाठी भरती', isNew: true },
     { id: 11, title: 'RCFL Apprentice Bharti 2025: राष्ट्रीय केमिकल्स & फर्टिलायझर्स लि. मध्ये 325 जागांसाठी भरती', isNew: true },
     { id: 12, title: '169 PMC Recruitment', isNew: true },
+    { id: 13, title: 'I am testing', isNew: true},
    
 ];
 
