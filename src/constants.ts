@@ -2,10 +2,10 @@
 import type { Cafe, Job } from './types';
 
 export const SLIDER_IMAGES: string[] = [
-  'https://picsum.photos/1200/400?random=1',
-  'https://picsum.photos/1200/400?random=2',
-  'https://picsum.photos/1200/400?random=3',
-  'https://picsum.photos/1200/400?random=4',
+  'https://files.catbox.moe/528fzp.png',
+  'https://files.catbox.moe/528fzp.png',
+  'https://files.catbox.moe/528fzp.png',
+  'https://files.catbox.moe/528fzp.png',
 ];
 
 export const CAFES: Cafe[] = [
