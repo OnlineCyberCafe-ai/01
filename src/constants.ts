@@ -16,18 +16,16 @@ export const CAFES: Cafe[] = [
 ];
 
 export const JOBS: Job[] = [
-    { id: 1, title: 'BEML Bharti 2025: BEML लिमिटेड मध्ये 680+जागांसाठी भरती', isNew: true },
-    { id: 2, title: 'IBPS RRB Bharti 2025: IBPS मार्फत 13,217 जागांसाठी मेगाभरती' },
-    { id: 3, title: '5180+ SBI Clerk Bharti 2025 (Deadline: To be announced)' },
-    { id: 4, title: 'Naval Dockyard Mumbai Bharti 2025: मुंबई नेव्हल डॉकयार्ड मध्ये 286 जागांसाठी भरती', isNew: true },
-    { id: 5, title: 'NHPC Bharti 2025: नॅशनल हायड्रोइलेक्ट्रिक पॉवर कॉर्पोरेशन लि. मध्ये 248 जागांसाठी भरती', isNew: true },
-    { id: 6, title: 'West Central Railway Bharti 2025: पश्चिम-मध्य रेल्वेत 2865 जागांसाठी भरती', isNew: true },
-    { id: 7, title: 'Supreme Court Bharti 2025: भारतीय सर्वोच्च न्यायालयात कोर्ट मास्टर पदाची भरती', isNew: true },
+    { id: 1, title: 'EMRS Bharti 2025: एकलव्य मॉडेल निवासी शाळांमध्ये 7267 जागांसाठी भरती', isNew: true },
+    { id: 2, title: 'IBPS RRB Bharti 2025: IBPS मार्फत 13,217 जागांसाठी मेगाभरती [मुदतवाढ]' },
+    { id: 3, title: 'YDCC Bank Bharti 2025: यवतमाळ जिल्हा मध्यवर्ती सहकारी बँकेत 133 जागांसाठी भरती' },
+    { id: 4, title: 'Punjab And Sind Bank Bharti 2025: पंजाब & सिंध बँकेत 190 जागांसाठी भरती', isNew: true },
+    { id: 5, title: 'Western Railway Scout and Guide Bharti 2025: पश्चिम रेल्वे स्काउट & गाईड भरती 2025', isNew: true },
+    { id: 6, title: 'North Central Railway Bharti 2025: उत्तर मध्य रेल्वेत 1763 जागांसाठी भरती', isNew: true },
+    { id: 7, title: 'MAHA TET 2025: महाराष्ट्र शिक्षक पात्रता परीक्षा 2025', isNew: true },
     { id: 8, title: 'CCRAS Bharti 2025: केंद्रीय आयुर्वेदिक विज्ञान संशोधन परिषदेत 394 जागांसाठी भरती [मुदतवाढ]' },
-    { id: 9, title: '1121 BSF Recruitment' },
-    { id: 10, title: 'PGCIL Bharti 2025: पॉवर ग्रिड कॉर्पोरेशन ऑफ इंडिया मध्ये 1543 जागांसाठी भरती', isNew: true },
-    { id: 11, title: 'RCFL Apprentice Bharti 2025: राष्ट्रीय केमिकल्स & फर्टिलायझर्स लि. मध्ये 325 जागांसाठी भरती', isNew: true },
-    
+    { id: 9, title: 'RRB Section Controller Bharti 2025: भारतीय रेल्वेत 368 जागांसाठी भरती', isNew: true },
+   
 ];
 
 export const EMAILJS_CONFIG = {
