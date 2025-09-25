@@ -25,6 +25,7 @@ export const JOBS: Job[] = [
     { id: 7, title: 'MAHA TET 2025: महाराष्ट्र शिक्षक पात्रता परीक्षा 2025', isNew: true },
     { id: 8, title: 'CCRAS Bharti 2025: केंद्रीय आयुर्वेदिक विज्ञान संशोधन परिषदेत 394 जागांसाठी भरती [मुदतवाढ]' },
     { id: 9, title: 'RRB Section Controller Bharti 2025: भारतीय रेल्वेत 368 जागांसाठी भरती', isNew: true },
+    
    
 ];
 
