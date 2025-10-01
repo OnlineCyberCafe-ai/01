@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MenuIcon } from './icons/MenuIcon';
 import { XIcon } from './icons/XIcon';
+import logo from '../assets/logo.jpg';
 
 
 const Header: React.FC = () => {
@@ -18,7 +19,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center space-x-4">
             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-              <img src="/logo.jpg" className="w-11 h-11 rounded-full object-cover" />
+             <img src={logo} alt="Logo" className="w-12 h-12 rounded-full object-cover" />
             </div>
             <h1 className="text-xl md:text-2xl font-bold tracking-tight">
               Online Cyber Cafe
