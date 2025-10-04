@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
         </div>
         <div className="mt-4 space-x-6">
             <a href="#careers" className="hover:text-white transition-colors">Careers</a>
-            <a href="https://twitter.com/onlinecybercafe" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Twitter</a>
+            <a href="https://www.instagram.com/onlinecybercafe_01/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
         </div>
       </div>
     </footer>
