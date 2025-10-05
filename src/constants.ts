@@ -16,7 +16,7 @@ export const CAFES: Cafe[] = [
 ];
 
 export const JOBS: Job[] = [
-    { id: 1, title: 'EMRS Bharti 2025: एकलव्य मॉडेल निवासी शाळांमध्ये 7267 जागांसाठी भरती', isNew: true },
+    { id: 1, title: 'Ladki Bahin Yojana 2025 – Complete your e-KYC to get benefits!', isNew: true },
     { id: 2, title: 'IBPS RRB Bharti 2025: IBPS मार्फत 13,217 जागांसाठी मेगाभरती [मुदतवाढ]' },
     { id: 3, title: 'SSC Delhi Police Driver Bharti 2025: SSC मार्फत दिल्ली पोलीस दलात ड्रायव्हर पदाच्या 737 जागांसाठी भरती',isNew: true},
     { id: 4, title: 'SSC CPO Bharti 2025: स्टाफ सिलेक्शन कमिशन मार्फत 3073 जागांसाठी भरती', isNew: true},
@@ -26,6 +26,7 @@ export const JOBS: Job[] = [
     { id: 8, title: 'CCRAS Bharti 2025: केंद्रीय आयुर्वेदिक विज्ञान संशोधन परिषदेत 394 जागांसाठी भरती [मुदतवाढ]' },
     { id: 9, title: 'RRB Section Controller Bharti 2025: भारतीय रेल्वेत 368 जागांसाठी भरती' },
     { id: 10, title: 'BEL Bharti 2025: भारत इलेक्ट्रॉनिक्स लिमिटेड मध्ये 610 जागांसाठी भरती', isNew: true},
+    { id: 11, title: 'EMRS Bharti 2025: एकलव्य मॉडेल निवासी शाळांमध्ये 7267 जागांसाठी भरती'}
     
     
    
