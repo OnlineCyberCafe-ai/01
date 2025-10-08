@@ -16,8 +16,8 @@ export const CAFES: Cafe[] = [
 ];
 
 export const JOBS: Job[] = [
-    { id: 1, title: 'Ladki Bahin Yojana 2025 – Complete your e-KYC to get benefits!', isNew: true },
-    { id: 2, title: 'IBPS RRB Bharti 2025: IBPS मार्फत 13,217 जागांसाठी मेगाभरती [मुदतवाढ]' },
+    { id: 1, title: 'RRB NTPC Bharti 2025: भारतीय रेल्वेत 8800+जागांसाठी मेगाभरती', isNew: true },
+    { id: 2, title: 'Ladki Bahin Yojana 2025 – Complete your e-KYC to get benefits!', isNew: true},
     { id: 3, title: 'SSC Delhi Police Driver Bharti 2025: SSC मार्फत दिल्ली पोलीस दलात ड्रायव्हर पदाच्या 737 जागांसाठी भरती',isNew: true},
     { id: 4, title: 'SSC CPO Bharti 2025: स्टाफ सिलेक्शन कमिशन मार्फत 3073 जागांसाठी भरती', isNew: true},
     { id: 5, title: 'SSC Delhi Police Driver Bharti 2025: SSC मार्फत दिल्ली पोलीस दलात ड्रायव्हर पदाच्या 737 जागांसाठी भरती',isNew: true},
